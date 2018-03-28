@@ -1,4 +1,3 @@
-var db = require('../../lib/db');
 (function(angular) {
     'use strict';
 
