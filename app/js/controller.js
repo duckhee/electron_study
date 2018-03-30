@@ -32,7 +32,7 @@ port.on('error', function(err) {
         //get radon value
         function get_radon() {
             port.on('data', function(data) {
-                $scope.radon = data;
+
                 console.log('get data :::::', data);
             });
         }
