@@ -23,6 +23,7 @@ parser.on('error', function(err) {
     console.log('open error ::::::: ', err);
 });
 parser.write('p', function(data) {
+    console.log('get p data type :::::', typeof(data));
     console.log('get p command ::::::::::::::::::::: ', data);
 })
 parser.on('data', function(data) {
