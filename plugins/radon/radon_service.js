@@ -6,7 +6,7 @@ var parser = new parsers.Readline({
 
 });
 
-var port = new SerialPort('/dev/ttypACM0', {
+var port = new SerialPort('/dev/ttyUSB0', {
     baudRate: 9600
 });
 

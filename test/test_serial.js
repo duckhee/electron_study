@@ -1,20 +1,16 @@
 var SerialPort = require('serialport');
 
-var parsers = SerialPort.parsers;
-
-var parser = new parsers.Readline({
-    delimiter: '\r\n',
-});
-
-var port = new SerialPort('/dev/ttyUSB0', {
+const Readline = SerialPort.parsers.Readline;
+const port = new SerialPort('/dev/ttyUSB0', {
     baudRate: 9600
 });
+const parser = port.pipe(new Readline({ delimiter: '\r\n' }));
 
 port.pipe(parser);
 
-port.on('open', function() {
+parser.on('open', function() {
     console.log('test open !');
-    port.write("p", function(data) {
+    parser.write("p", function(data) {
         if (data) {
             console.log('get p command ::::', data);
         }
@@ -23,13 +19,13 @@ port.on('open', function() {
 
 });
 
-port.on('error', function(err) {
+parser.on('error', function(err) {
     console.log('open error ::::::: ', err);
 });
-port.write('p', function(data) {
+parser.write('p', function(data) {
     console.log('get p command ::::::::::::::::::::: ', data);
 })
-port.on('data', function(data) {
+parser.on('data', function(data) {
 
     console.log('get data ::::::: ', data);
     process.exit();
