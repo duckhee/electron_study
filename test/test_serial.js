@@ -26,7 +26,7 @@ port.on('open', function() {
 port.on('error', function(err) {
     console.log('open error ::::::: ', err);
 });
-port.write('p');
+port.writable('p');
 port.on('data', function(data) {
 
     console.log('get data ::::::: ', data);
