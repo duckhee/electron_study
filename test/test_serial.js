@@ -14,11 +14,10 @@ port.pipe(parser);
 
 port.on('open', function() {
     console.log('test open !');
-    port.write("p");
-    parser.on('data', function(data){
-	    console.log('testing ', data);
-	    process.exit();
+    port.write("p", function(data) {
+        console.log('get p command ::::', data);
     });
+
 });
 
 port.on('error', function(err) {
