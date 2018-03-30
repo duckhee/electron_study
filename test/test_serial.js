@@ -14,7 +14,7 @@ port.pipe(parser);
 
 port.on('open', function() {
     console.log('test open !');
-    port.write("p");
+    port.write("c");
     parser.on('data', function(data){
 	    console.log('testing ', data);
 	    process.exit();
