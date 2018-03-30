@@ -20,19 +20,12 @@ port.on('error', function(err) {
     console.log('error ::::::::: ', err);
 });
 
-function RadonValue($scope, $http, $interval) {
+(function() {
+    'use strict';
 
-    var get_value = function() {
-        port.on('data', function(data) {
-            console.log('get data :::::: ', data);
-
-        });
+    function SensorGet($scope, $interval) {
 
     }
+    angular.module('radonapp').factory('RadonService', SensorGet);
 
-    $scope.get_value = get_value;
-
-
-
-    angular.module('radonapp').controller('RadonValue', RadonValue);
-}
+})
