@@ -15,7 +15,10 @@ port.pipe(parser);
 port.on('open', function() {
     console.log('test open !');
     port.write("p", function(data) {
-        console.log('get p command ::::', data);
+        if (data) {
+            console.log('get p command ::::', data);
+        }
+
     });
 
 });
