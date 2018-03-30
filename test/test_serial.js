@@ -6,7 +6,7 @@ var parser = new parsers.Readline({
     delimiter: '\r\n',
 });
 
-var port = new SerialPort('/dev/ttyAMA0', {
+var port = new SerialPort('/dev/ttyUSB0', {
     baudRate: 9600
 });
 
@@ -24,8 +24,9 @@ port.on('open', function() {
 port.on('error', function(err) {
     console.log('open error ::::::: ', err);
 });
-
+port.write('p');
 port.on('data', function(data) {
+
     console.log('get data ::::::: ', data);
     process.exit();
 });
