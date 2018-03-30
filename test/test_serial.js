@@ -7,7 +7,7 @@ var parser = new parsers.Readline({
 });
 
 var port = new SerialPort('/dev/ttypACM0', {
-    baudrate: 9600
+    baudRate: 9600
 });
 
 port.pipe(parser);
@@ -19,8 +19,9 @@ port.on('open', function() {
 port.on('error', function(err) {
     console.log('open error ::::::: ', err);
 });
-
+port.write('p');
 port.on('data', function(data) {
+
     console.log('get data ::::::: ', data);
     process.exit();
 });
