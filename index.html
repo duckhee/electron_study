@@ -113,21 +113,6 @@
         }
     </script>
     <!-- BEGIN SCROLL PLUGIN-->
-    <script>
-        const annyang = require('annyang')
-        const fs = require('fs')
-        let config
-        try {
-            config = require('./config.json')
-        } catch (e) {
-            config = require('./remote/.config.default.json')
-        }
-        // Error logging
-        window.onerror = function(errorMsg, url, lineNumber) {
-            fs.appendFileSync('./smart-mirror.log', '[' + new Date().toString() + '] ' +
-                errorMsg + '| Script: ' + url + ' Line: ' + lineNumber + '\n');
-        }
-    </script>
 
 
 </head>
