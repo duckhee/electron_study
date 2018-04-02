@@ -26,7 +26,8 @@ parser.on('error', function(err) {
 parser.write('p', function(data) {
     console.log('get p data type :::::', typeof(data));
     console.log('get p command ::::::::::::::::::::: ', data.toString());
-})
+});
+
 parser.on('data', function(data) {
 
     console.log('get data ::::::: ', data);
