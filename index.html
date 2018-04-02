@@ -3,7 +3,8 @@
 
 <head>
     <title>Zephirus Arua</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi" /> -->
     <meta content="Radon,iot" name="keywords" />
     <meta content="Radon,iot" name="description" />
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
@@ -24,8 +25,8 @@
 
         $(window).load(function() {
             off = $("#boxscroll").position();
-            off.top += 2;
-            off.left += 2;
+            //off.top += 2;
+            //off.left += 2;
             $("#boxscroll").scroll();
         });
 
@@ -112,29 +113,20 @@
             $(name).getNiceScroll().doScrollPos(Math.floor(Math.random() * 4000), Math.floor(Math.random() * 4000), 150);
         }
     </script>
-    <!-- BEGIN SCROLL PLUGIN-->
-
-
 </head>
 
 <body ng-controller="radonCtrl" ng-cloak>
     <!--body start-->
     <div class="body-wrap">
-        <div class="top-left">
-            <div ng-include="plugins/weather/index.html"></div>
-            <div ng-include="pulgins/datetime/index.html"></div>
-        </div>
-
-
         <div class="body-ctn-area">
-
             <div class="dayntime-zone">
-                <span class="dtz-day">september 28, 2014</span>
+                <div ng-include="'plugins/datetime/index.html'"></div>
+                <!-- <span>september 28, 2014</span> -->
             </div>
             <div class="info-zone">
                 <div class="width-100 info-radon">
                     <span class="info-unit">Radon</span>
-                    <span class="info-txt">30.2</span>
+                    <span class="info-txt">{{}}</span>
                     <span class="info-unit"> pCi/L</span>
                 </div>
             </div>
@@ -149,8 +141,15 @@
                 </div>
             </div>
         </div>
+        <div class="endleft">
+            <span class="endleft-txt-color current">door1</span><span class="endleft-txt-color">door2</span><span class="endleft-txt-color">door3</span><span class="endleft-txt-color">door4</span><span class="endleft-txt-color">door5</span>
+        </div>
         <!--colse body-top-area-->
-
+        <div class="fancontrol">
+            <i class="icon-disc"></i><span class="fan-txt-color current">Auto</span><span class="fan-txt-color">Stop</span><span class="fan-txt-color">1</span><span class="fan-txt-color">2</span><span class="fan-txt-color">3</span>
+        </div>
+    </div>
+    <!--colse body-top-area-->
 
     </div>
     <!--wrap close-->
@@ -175,8 +174,14 @@
 
     <!-- Services -->
 
+    <!-- Controllers -->
+    <script src="app/js/controller.js"></script>
+    <script src="plugins/radon/controller.js"></script>
+
 </body>
 <script>
 </script>
+
+</html>
 
 </html>
